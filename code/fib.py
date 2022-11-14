@@ -12,7 +12,10 @@ every pair of reproduction-age rabbits produces a litter of k rabbit pairs (inst
 def fib(n,k):
     if n==0 : return 0
     if n==1 : return 1
-    return fib(n-1,k) + k*fib(n-2,k)
+    a,b=0,1
+    for i in range (2,n+1) :
+        a,b=b,b+k*a
+    return b
 
 with open("../data/rosalind_fib.txt", 'r') as txt_file:
     n_k = txt_file.readline().strip()
